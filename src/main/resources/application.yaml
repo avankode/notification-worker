@@ -1,7 +1,5 @@
 spring:
   application:
     name: notifcation-worker
-  main:
-    web-application-type: none
   profiles:
     active: ${SPRING_PROFILES_ACTIVE:dev}
