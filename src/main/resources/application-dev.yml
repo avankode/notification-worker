@@ -1,12 +1,13 @@
 spring:
   datasource:
-    url: jdbc:postgresql://${DB_LOCAL_HOST}:${DB_LOCAL_PORT}/${DB_LOCAL_NAME}?sslmode=disable
-    username: ${DB_LOCAL_USER}
-    password: ${DB_LOCAL_PASSWORD}
+    # Notice the ?sslmode=disable at the very end!
+    url: jdbc:postgresql://notification_db:5432/notification_platform?sslmode=disable
+    username: user
+    password: password
     driver-class-name: org.postgresql.Driver
 
   rabbitmq:
-    host: ${RABBITMQ_LOCAL_HOST}
-    port: ${RABBITMQ_LOCAL_PORT}
-    username: ${RABBITMQ_LOCAL_USER}
-    password: ${RABBITMQ_LOCAL_PASSWORD}
+    host: host.docker.internal
+    port: 5672
+    username: guest
+    password: guest

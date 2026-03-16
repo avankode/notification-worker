@@ -6,14 +6,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class NotificationConsumer {
 
-    // Make sure "notification_queue" matches the exact name of the queue your API sends to!
-//    @RabbitListener(queues = "notification_queue")
-//    public void processNotification(String message) {
-//
-//        System.out.println("🚨 NEW MESSAGE RECEIVED 🚨");
-//        System.out.println("Payload: " + message);
-//
-//        // Later, we will add the actual logic here to send an Email or SMS
-//        // and save the status to your PostgreSQL database!
-//    }
+    @RabbitListener(queues = "notification_queue")
+    public void receiveMessage(String message) {
+
+        System.out.println("======================================");
+        System.out.println("🚨 NEW BACKGROUND TASK RECEIVED 🚨");
+        System.out.println("Processing Payload: " + message);
+        System.out.println("======================================");
+
+        // TODO: Next, we will write the logic to save this to PostgreSQL!
+    }
 }
