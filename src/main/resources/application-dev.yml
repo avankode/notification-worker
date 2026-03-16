@@ -1,13 +1,15 @@
 spring:
   datasource:
-    # Notice the ?sslmode=disable at the very end!
-    url: jdbc:postgresql://notification_db:5432/notification_platform?sslmode=disable
+    url: jdbc:postgresql://localhost:5433/notification_platform
     username: user
     password: password
     driver-class-name: org.postgresql.Driver
 
   rabbitmq:
-    host: host.docker.internal
+    host: localhost
     port: 5672
     username: guest
     password: guest
+
+server:
+  port: 8081
