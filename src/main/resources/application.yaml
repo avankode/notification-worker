@@ -4,4 +4,4 @@ spring:
   main:
     web-application-type: none
   profiles:
-    active: dev
+    active: ${SPRING_PROFILES_ACTIVE:dev}
