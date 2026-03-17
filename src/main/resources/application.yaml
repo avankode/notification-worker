@@ -15,3 +15,6 @@ spring:
           auth: true
           starttls:
             enable: true
+
+  slack:
+    webhook-url: ${SLACK_HOOK} # We will add this to IntelliJ Environment Variables later!
