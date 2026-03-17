@@ -20,6 +20,9 @@ public class NotificationLog {
 
     private String recipientEmail;
 
+    @Column(name = "tenant_id")
+    private String tenantId;
+
     private String subject;
 
     @Column(columnDefinition = "TEXT")

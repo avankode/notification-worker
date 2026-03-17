@@ -7,6 +7,7 @@ import java.io.Serializable;
 @Getter
 public class NotificationRequestDTO implements Serializable {
 
+    private String tenantId;
     private String channel;
     private String recipient;
     private String subject;

@@ -15,6 +15,7 @@ public class NotificationLogService {
 
     public NotificationLog createProcessingLog(NotificationRequestDTO request) {
         NotificationLog notificationLog = NotificationLog.builder()
+                .tenantId(request.getTenantId())
                 .recipientEmail(request.getRecipient())
                 .subject(request.getSubject())
                 .messageBody(request.getMessageBody())
