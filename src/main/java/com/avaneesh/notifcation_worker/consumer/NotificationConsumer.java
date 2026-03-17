@@ -1,7 +1,6 @@
 package com.avaneesh.notifcation_worker.consumer;
 
 import com.avaneesh.notifcation_worker.dto.NotificationRequestDTO;
-import com.avaneesh.notifcation_worker.entity.NotificationLog;
 import com.avaneesh.notifcation_worker.service.NotificationConsumerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -12,6 +11,7 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @Component
 public class NotificationConsumer {
+
     @Autowired
     private NotificationConsumerService notificationConsumerService;
 
@@ -27,7 +27,6 @@ public class NotificationConsumer {
 
         notificationConsumerService.saveNotificationLog(request);
         log.info("Successfully saved the message to DB "+ request.getRecipientEmail());
-
 
     }
 }

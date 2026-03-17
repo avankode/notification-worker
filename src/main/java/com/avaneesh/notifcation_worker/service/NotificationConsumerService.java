@@ -12,10 +12,28 @@ public class NotificationConsumerService {
     @Autowired
     private NotificationLogRepository notificationLogRepository;
 
+    @Autowired
+    private EmailService emailService;
+
+    @Autowired
+    private NotificationLogService notificationLogService;
+
     public void saveNotificationLog(NotificationRequestDTO request){
 
-        NotificationLog log = notificationLogBuilder(request);
-        NotificationLog savedLog = notificationLogRepository.save(log);
+        NotificationLog log = notificationLogService.createProcessingLog(request);
+
+        try {
+            emailService.sendEmail(
+                    request.getRecipientEmail(),
+                    request.getSubject(),
+                    request.getMessageBody()
+            );
+
+            notificationLogService.markAsSent(log);
+
+        } catch (Exception e) {
+            notificationLogService.markAsFailed(log);
+        }
     }
 
     private NotificationLog notificationLogBuilder(NotificationRequestDTO request){
