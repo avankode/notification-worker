@@ -29,7 +29,6 @@ public class NotificationLog {
 
     private LocalDateTime createdAt;
 
-    // This automatically sets the timestamp right before Hibernate saves it!
     @PrePersist
     protected void onCreate() {
         if (this.createdAt == null) {

@@ -1,11 +1,13 @@
 package com.avaneesh.notifcation_worker.service;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class EmailService {
 
@@ -17,7 +19,7 @@ public class EmailService {
 
     public void sendEmail(String to, String subject, String body) {
         try {
-            System.out.println("⏳ Attempting to send email to: " + to);
+            log.info("⏳ Attempting to send email to: {}" , to);
 
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(senderEmail);
@@ -27,9 +29,9 @@ public class EmailService {
 
             mailSender.send(message);
 
-            System.out.println("✅ Email successfully handed off to SMTP server!");
+            log.info("✅ Email successfully handed off to SMTP server!");
         } catch (Exception e) {
-            System.err.println("❌ FAILED to send email: " + e.getMessage());
+            log.error("❌ FAILED to send email: {}" , e.getMessage());
             throw new RuntimeException("Email sending failed", e);
         }
     }

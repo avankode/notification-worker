@@ -7,12 +7,13 @@ import java.io.Serializable;
 @Getter
 public class NotificationRequestDTO implements Serializable {
 
-    private String recipientEmail;
+    private String channel;
+    private String recipient;
     private String subject;
     private String messageBody;
 
     @Override
     public String toString() {
-        return "To: " + recipientEmail + " | Subject: " + subject;
+        return "To: " + recipient + " | Subject: " + subject;
     }
 }
