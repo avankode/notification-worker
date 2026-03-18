@@ -19,7 +19,7 @@ public class EmailService {
 
     public void sendEmail(String to, String subject, String body) {
         try {
-            log.info("⏳ Attempting to send email to: {}" , to);
+            log.info(" Attempting to send email to: {}" , to);
 
             SimpleMailMessage message = new SimpleMailMessage();
             message.setFrom(senderEmail);
@@ -29,9 +29,9 @@ public class EmailService {
 
             mailSender.send(message);
 
-            log.info("✅ Email successfully handed off to SMTP server!");
+            log.info(" Email successfully handed off to SMTP server!");
         } catch (Exception e) {
-            log.error("❌ FAILED to send email: {}" , e.getMessage());
+            log.error(" FAILED to send email: {}" , e.getMessage());
             throw new RuntimeException("Email sending failed", e);
         }
     }

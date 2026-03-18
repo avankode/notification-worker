@@ -19,7 +19,7 @@ public class NotificationConsumer {
     public void receiveMessage(NotificationRequestDTO request) {
 
         log.info("======================================");
-        log.info("🚨 NEW JSON TASK RECEIVED 🚨");
+        log.info(" NEW JSON TASK RECEIVED ");
         log.info("Sending email to: {}" , request.getRecipient());
         log.info("Subject: {}" , request.getSubject());
         log.info("Body: {}" , request.getMessageBody());

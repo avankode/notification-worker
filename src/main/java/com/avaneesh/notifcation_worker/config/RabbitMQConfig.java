@@ -22,10 +22,8 @@ public class RabbitMQConfig {
         DefaultClassMapper classMapper = new DefaultClassMapper();
         classMapper.setTrustedPackages("*");
 
-        // --- THE MAGIC TRANSLATION MAP ---
         Map<String, Class<?>> idClassMapping = new HashMap<>();
 
-        // Tell the worker: "If you see the API's class name, just use my local class instead!"
         idClassMapping.put("com.avaneesh.notifcation_api.dto.NotificationRequestDTO", NotificationRequestDTO.class);
 
         classMapper.setIdClassMapping(idClassMapping);

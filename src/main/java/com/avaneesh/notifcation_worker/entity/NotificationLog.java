@@ -23,6 +23,9 @@ public class NotificationLog {
     @Column(name = "tenant_id")
     private String tenantId;
 
+    @Column(name = "webhook_url")
+    private String webhookUrl;
+
     private String subject;
 
     @Column(columnDefinition = "TEXT")
