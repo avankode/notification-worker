@@ -4,9 +4,11 @@ import com.avaneesh.notifcation_worker.dto.NotificationRequestDTO;
 import com.avaneesh.notifcation_worker.entity.NotificationLog;
 import com.avaneesh.notifcation_worker.enums.NotificationStatus;
 import com.avaneesh.notifcation_worker.repository.NotificationLogRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+@Slf4j
 @Service
 public class NotificationLogService {
 
@@ -28,10 +30,12 @@ public class NotificationLogService {
     public void markAsSent(NotificationLog notificationLog) {
         notificationLog.setStatus(NotificationStatus.SENT.name());
         notificationLogRepository.save(notificationLog);
+        log.info("logged message {} with {} status ", notificationLog.getId(), NotificationStatus.SENT);
     }
 
     public void markAsFailed(NotificationLog notificationLog) {
         notificationLog.setStatus(NotificationStatus.FAILED.name());
         notificationLogRepository.save(notificationLog);
+        log.info("logged message {} with {} status ", notificationLog.getId(), NotificationStatus.FAILED);
     }
 }
